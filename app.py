@@ -75,7 +75,7 @@ class LoanApprovalApp:
 
 if __name__ == "__main__":
     # used streamlit 
-    st.set_page_config(page_title="Load Predictor",layout="centered")
+    st.set_page_config(page_title="Loan Predictor",layout="centered")
     st.title("🏦 Loan Approval & Amount Predictor")
     st.write("Fill applicant details below")
 
@@ -98,4 +98,5 @@ if __name__ == "__main__":
             )
 
         else:
+
             st.error("Loan Rejected")
