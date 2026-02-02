@@ -58,25 +58,61 @@ if __name__ == "__main__":
     #sidebar Inputs
     st.sidebar.header("Applicant Details")
     data = {
-            "no_of_dependents": st.sidebar.number_input("Dependents",0,10,0),
-            "education" :st.sidebar.selectbox(
-                "Education", ["Graduate","Not Graduate"]
-            ),
-            "self_employed": st.sidebar.selectbox(
-                "Self Employed",["Yes","No"]
-            ),
-            "income_annum" : st.sidebar.number_input("Annual Income",value=0.0),
-            "loan_amount" : st.sidebar.number_input("loan amount",value=0),
-            "loan_term" : st.sidebar.number_input("Loan Term",value=0),
-            "cibil_score" : st.sidebar.number_input("cibil score",value=0),
-            "residential_assets_value" : st.sidebar.number_input("residential assets value",value=0),
-            "commercial_assets_value" : st.sidebar.number_input("commercial assets value",value=0),
-            "luxury_assets_value" : st.sidebar.number_input("luxury assets value",value=0),
-            "bank_asset_value" : st.sidebar.number_input("bank asset value",value=0),
-            
-        }
+    "no_of_dependents": st.sidebar.number_input("Dependents", 0, 10, 0),
+
+    "education": st.sidebar.selectbox(
+        "Education", ["Graduate", "Not Graduate"]
+    ),
+
+    "self_employed": st.sidebar.selectbox(
+        "Self Employed", ["Yes", "No"]
+    ),
+
+    "income_annum": st.sidebar.number_input(
+        "Annual Income", min_value=0, step=1, value=0
+    ),
+
+    "loan_amount": st.sidebar.number_input(
+        "Loan Amount", min_value=0, step=1, value=0
+    ),
+
+    "loan_term": st.sidebar.number_input(
+        "Loan Term", min_value=0, step=1, value=0
+    ),
+
+    "cibil_score": st.sidebar.number_input(
+        "CIBIL Score", min_value=0, step=1, value=0
+    ),
+
+    "residential_assets_value": st.sidebar.number_input(
+        "Residential Assets Value", min_value=0, step=1, value=0
+    ),
+
+    "commercial_assets_value": st.sidebar.number_input(
+        "Commercial Assets Value", min_value=0, step=1, value=0
+    ),
+
+    "luxury_assets_value": st.sidebar.number_input(
+        "Luxury Assets Value", min_value=0, step=1, value=0
+    ),
+
+    "bank_asset_value": st.sidebar.number_input(
+        "Bank Asset Value", min_value=0, step=1, value=0
+    ),
+    }
+
 
     applicant_df = pd.DataFrame([data])
+    applicant_df = applicant_df.astype({
+    "income_annum": "int64",
+    "loan_amount": "int64",
+    "loan_term": "int64",
+    "cibil_score": "int64",
+    "residential_assets_value": "int64",
+    "commercial_assets_value": "int64",
+    "luxury_assets_value": "int64",
+    "bank_asset_value": "int64",
+})
     
     app = LoanApprovalApp()
     
@@ -96,6 +132,7 @@ if __name__ == "__main__":
         else:
 
             st.error("Loan Rejected")
+
 
 
 
