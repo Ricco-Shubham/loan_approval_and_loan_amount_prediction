@@ -37,14 +37,14 @@ class LoanApprovalApp:
             "self_employed": st.sidebar.selectbox(
                 "Self Employed",["Yes","No"]
             ),
-            "income_annum" : st.sidebar.number_input("Annual Income",value=None),
-            "loan_term" : st.sidebar.number_input("Loan Term",value=None),
-            "cibil_score" : st.sidebar.number_input("cibil score",value=None),
-            "residential_assets_value" : st.sidebar.number_input("residential assets value",value=None),
-            "commercial_assets_value" : st.sidebar.number_input("commercial assets value",value=None),
-            "luxury_assets_value" : st.sidebar.number_input("luxury assets value",value=None),
-            "bank_asset_value" : st.sidebar.number_input("bank asset value",value=None),
-            "loan_amount" : st.sidebar.number_input("loan amount",value=None),
+            "income_annum" : st.sidebar.number_input("Annual Income",value=0.0),
+            "loan_term" : st.sidebar.number_input("Loan Term",value=0),
+            "cibil_score" : st.sidebar.number_input("cibil score",value=0),
+            "residential_assets_value" : st.sidebar.number_input("residential assets value",value=0),
+            "commercial_assets_value" : st.sidebar.number_input("commercial assets value",value=0),
+            "luxury_assets_value" : st.sidebar.number_input("luxury assets value",value=0),
+            "bank_asset_value" : st.sidebar.number_input("bank asset value",value=0),
+            "loan_amount" : st.sidebar.number_input("loan amount",value=0),
         }
 
         applicant_df = pd.DataFrame([data])
@@ -100,3 +100,4 @@ if __name__ == "__main__":
         else:
 
             st.error("Loan Rejected")
+
