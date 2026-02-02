@@ -27,30 +27,6 @@ class LoanApprovalApp:
             "bank_asset_value"
         ]
 
-    def get_user_input(self):
-
-        data = {
-            "no_of_dependents": st.sidebar.number_input("Dependents",0,10,0),
-            "education" :st.sidebar.selectbox(
-                "Education", ["Graduate","Not Graduate"]
-            ),
-            "self_employed": st.sidebar.selectbox(
-                "Self Employed",["Yes","No"]
-            ),
-            "income_annum" : st.sidebar.number_input("Annual Income",value=0.0),
-            "loan_amount" : st.sidebar.number_input("loan amount",value=0),
-            "loan_term" : st.sidebar.number_input("Loan Term",value=0),
-            "cibil_score" : st.sidebar.number_input("cibil score",value=0),
-            "residential_assets_value" : st.sidebar.number_input("residential assets value",value=0),
-            "commercial_assets_value" : st.sidebar.number_input("commercial assets value",value=0),
-            "luxury_assets_value" : st.sidebar.number_input("luxury assets value",value=0),
-            "bank_asset_value" : st.sidebar.number_input("bank asset value",value=0),
-            
-        }
-
-        applicant_df = pd.DataFrame([data])
-        return applicant_df
-
 
     
     def two_stage_predictor(self,applicant_df):
@@ -79,11 +55,30 @@ if __name__ == "__main__":
     st.set_page_config(page_title="Loan Predictor",layout="centered")
     st.title("🏦 Loan Approval & Amount Predictor")
     st.write("Fill applicant details below")
-
     #sidebar Inputs
     st.sidebar.header("Applicant Details")
+    data = {
+            "no_of_dependents": st.sidebar.number_input("Dependents",0,10,0),
+            "education" :st.sidebar.selectbox(
+                "Education", ["Graduate","Not Graduate"]
+            ),
+            "self_employed": st.sidebar.selectbox(
+                "Self Employed",["Yes","No"]
+            ),
+            "income_annum" : st.sidebar.number_input("Annual Income",value=0.0),
+            "loan_amount" : st.sidebar.number_input("loan amount",value=0),
+            "loan_term" : st.sidebar.number_input("Loan Term",value=0),
+            "cibil_score" : st.sidebar.number_input("cibil score",value=0),
+            "residential_assets_value" : st.sidebar.number_input("residential assets value",value=0),
+            "commercial_assets_value" : st.sidebar.number_input("commercial assets value",value=0),
+            "luxury_assets_value" : st.sidebar.number_input("luxury assets value",value=0),
+            "bank_asset_value" : st.sidebar.number_input("bank asset value",value=0),
+            
+        }
+
+    applicant_df = pd.DataFrame([data])
+    
     app = LoanApprovalApp()
-    applicant_df = app.get_user_input()
     
     #predict Button
 
@@ -101,5 +96,6 @@ if __name__ == "__main__":
         else:
 
             st.error("Loan Rejected")
+
 
 
