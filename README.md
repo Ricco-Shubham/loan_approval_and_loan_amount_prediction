@@ -9,7 +9,7 @@ An end-to-end Machine Learning project that predicts:
 
 🚀 Live Demo
 
-👉 [Add your Streamlit/GitHub Pages link here]
+👉 https://loan-approval-and-loan-amount-prediction.streamlit.app/
 
 📌 Project Overview
 
@@ -22,7 +22,7 @@ Predicts whether a loan should be approved or rejected.
 
 🔹 Stage 2 — Loan Amount (Regression)
 
-If approved, predicts the eligible loan amount for the applicant.
+If approved, it predicts the eligible loan amount for the applicant.
 This mirrors how financial institutions often separate risk assessment and amount eligibility.
 
 # 🧠 ML Workflow
