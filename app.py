@@ -48,7 +48,7 @@ class LoanApprovalApp:
             out['predicted_loan_amount'] = None
         return out
     
-    def validate_inputs(data):
+    def validate_inputs(self,data):
         missing = []
     
         for key, value in data.items():
@@ -137,7 +137,7 @@ if __name__ == "__main__":
 
     if st.button("🔍 Predict Loan Status"):
 
-        missing_fields = validate_inputs(data)
+        missing_fields = app.validate_inputs(data)
     
         if missing_fields:
             st.warning("⚠️ Please fill all details first")
@@ -158,6 +158,7 @@ if __name__ == "__main__":
                 )
             else:
                 st.error("❌ Loan Rejected")
+
 
 
 
