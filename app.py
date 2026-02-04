@@ -71,7 +71,7 @@ if __name__ == "__main__":
     # used streamlit 
     st.set_page_config(page_title="Loan Predictor",layout="centered")
     st.title("🏦 Loan Approval & Amount Predictor")
-    st.write("Fill applicant details below")
+    st.write("Fill applicant details from sidebar >>")
     #sidebar Inputs
     st.sidebar.header("Applicant Details")
     data = {
@@ -158,6 +158,7 @@ if __name__ == "__main__":
                 )
             else:
                 st.error("❌ Loan Rejected")
+
 
 
 
