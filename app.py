@@ -47,6 +47,23 @@ class LoanApprovalApp:
         else:
             out['predicted_loan_amount'] = None
         return out
+    
+    def validate_inputs(data):
+        missing = []
+    
+        for key, value in data.items():
+            # For categorical fields
+            if key in ["education", "self_employed"]:
+                if value is None or value == "":
+                    missing.append(key)
+    
+            # For numeric fields
+            else:
+                if value is None or value <= 0:
+                    missing.append(key)
+    
+        return missing
+
 
 #-----------------STREAMLIT UI----------------#
 
@@ -119,6 +136,17 @@ if __name__ == "__main__":
     #predict Button
 
     if st.button("🔍 Predict Loan Status"):
+
+    missing_fields = validate_inputs(data)
+
+    if missing_fields:
+        st.warning("⚠️ Please fill all details first")
+
+        st.write("### Missing / Invalid Fields:")
+        for field in missing_fields:
+            st.write(f"• {field.replace('_',' ').title()}")
+
+    else:
         result = app.two_stage_predictor(applicant_df)
         st.subheader("Result")
 
@@ -128,10 +156,10 @@ if __name__ == "__main__":
                 "💰 Predicted Loan Amount",
                 f"₹ {result['predicted_loan_amount']:,.2f}",
             )
-
         else:
+            st.error("❌ Loan Rejected")
 
-            st.error("Loan Rejected")
+
 
 
 
