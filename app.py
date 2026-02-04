@@ -137,27 +137,28 @@ if __name__ == "__main__":
 
     if st.button("🔍 Predict Loan Status"):
 
-    missing_fields = validate_inputs(data)
-
-    if missing_fields:
-        st.warning("⚠️ Please fill all details first")
-
-        st.write("### Missing / Invalid Fields:")
-        for field in missing_fields:
-            st.write(f"• {field.replace('_',' ').title()}")
-
-    else:
-        result = app.two_stage_predictor(applicant_df)
-        st.subheader("Result")
-
-        if result['loan_status']==1:
-            st.success("✅ Loan Approved")
-            st.metric(
-                "💰 Predicted Loan Amount",
-                f"₹ {result['predicted_loan_amount']:,.2f}",
-            )
+        missing_fields = validate_inputs(data)
+    
+        if missing_fields:
+            st.warning("⚠️ Please fill all details first")
+    
+            st.write("### Missing / Invalid Fields:")
+            for field in missing_fields:
+                st.write(f"• {field.replace('_',' ').title()}")
+    
         else:
-            st.error("❌ Loan Rejected")
+            result = app.two_stage_predictor(applicant_df)
+            st.subheader("Result")
+    
+            if result['loan_status']==1:
+                st.success("✅ Loan Approved")
+                st.metric(
+                    "💰 Predicted Loan Amount",
+                    f"₹ {result['predicted_loan_amount']:,.2f}",
+                )
+            else:
+                st.error("❌ Loan Rejected")
+
 
 
 
