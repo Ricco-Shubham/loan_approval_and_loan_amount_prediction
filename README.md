@@ -7,9 +7,9 @@ An end-to-end Machine Learning project that predicts:
 
 # Built using a two-stage ML pipeline and deployed as an interactive Streamlit web application.
 
-🚀 Live Demo
+🚀 ![Video Demo](https://www.linkedin.com/posts/riccoshubham_machinelearning-datascience-streamlit-activity-7424655547276099585-ddHD?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADE2h3cBX01qWrGrBr3icVyP1A2Uh21b9hE)
 
-👉 https://loan-approval-and-loan-amount-prediction.streamlit.app/
+👉 ![Live Link] (https://loan-approval-and-loan-amount-prediction.streamlit.app/)
 
 📌 Project Overview
 
