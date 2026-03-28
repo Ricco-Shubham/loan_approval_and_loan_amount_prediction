@@ -109,15 +109,18 @@ Streamlit
 
 # ▶️ How to Run Locally
 # 1️⃣ Clone the repo
+```
 git clone https://github.com/yourusername/loan-prediction-app.git
 cd loan-prediction-app
-
+```
 # 2️⃣ Install dependencies
+```
 pip install -r requirements.txt
-
+```
 # 3️⃣ Run Streamlit
+```
 streamlit run app.py
-
+```
 # 🎯 Use Cases
 
 ✔️ Banking risk assessment
